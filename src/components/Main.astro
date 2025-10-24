@@ -1,0 +1,64 @@
+<seciton class='am-background'>
+  <svg viewBox='0 0 1000 1000' class='am-svg'>
+    {
+      Array.from({ length: 20 }, (_, i) => (
+        <polygon
+          style={`--i: ${i}`}
+          points='
+            500,150
+            418.1818,300
+            200,300
+            309.0909,500
+            200,700
+            418.1818,700
+            500,850
+            581.8181,700
+            800,700
+            690.9090,500
+            800,300
+            581.8181,300
+          '
+        />
+      ))
+    }
+  </svg>
+</seciton>
+
+<style>
+  .am-background {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #000;
+  }
+
+  .am-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  polygon {
+    fill: none;
+    stroke: chartreuse;
+    stroke-width: 16;
+    transform-origin: center center;
+    animation: move 10s linear infinite;
+    animation-delay: calc(var(--i) * -0.5s);
+  }
+
+  @keyframes move {
+    0% {
+      transform: scale(0) rotate(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(3) rotate(45deg);
+      opacity: 0;
+    }
+  }
+</style>
